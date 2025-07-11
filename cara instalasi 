@@ -1,0 +1,121 @@
+### Langkah 1: Membuat Akun GitHub
+1. Buka [github.com](https://github.com)
+2. Klik "Sign up" di pojok kanan atas
+3. Isi formulir:
+   - Email
+   - Password
+   - Username (contoh: `namaAnda123`)
+4. Verifikasi alamat email melalui inbox
+5. Selesai! Akun GitHub siap digunakan.
+
+---
+
+### Langkah 2: Persiapan Project Lokal
+1. Buat Folder Project  
+   ```bash
+   mkdir my-streamlit-app
+   cd my-streamlit-app
+   ```
+
+2. Inisialisasi Git  
+   ```bash
+   git init
+   git config --global user.name "Nama Anda"
+   git config --global user.email "email@anda.com"
+   ```
+
+3. Buat File Utama  
+   Buat file `app.py` (gunakan kode Streamlit Anda)
+
+4. Buat `requirements.txt`  
+   Contoh isi:
+   ```text
+   streamlit>=1.32.0
+   matplotlib>=3.8.0
+   numpy>=1.24.0
+   ```
+
+5. Buat `README.md` (opsional)  
+   Deskripsi project dalam format Markdown.
+
+---
+
+### Langkah 3: Upload ke GitHub
+1. Buat Repository Baru  
+   - Login GitHub → Klik "+ New repository"
+   - Isi nama repo (misal: `my-streamlit-app`)
+   - Pilih Public (gratis)
+   - Centang "Add a README file" (opsional)
+
+2. Hubungkan Repo Lokal  
+   ```bash
+   git remote add origin https://github.com/username/repo-name.git
+   git branch -M main
+   ```
+
+3. Push Project  
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push -u origin main
+   ```
+
+---
+
+### Langkah 4: Deploy ke Streamlit
+1. Login Streamlit  
+   - Buka [streamlit.io](https://streamlit.io)
+   - Klik "Sign in" → Pilih "Continue with GitHub"
+
+2. Buat Aplikasi Baru  
+   - Klik "New app" → Pilih repository dan branch
+   - Atur konfigurasi:
+     - Main file path: `app.py`
+     - Python version: 3.9+ (otomatis)
+   - Klik "Deploy"
+
+3. Tunggu Proses Selesai  
+   - Streamlit akan otomatis install package dari `requirements.txt`
+   - Cek log deploy jika ada error.
+
+---
+
+### Langkah 5: Update Aplikasi
+1. Edit File Lokal  
+   Lakukan perubahan pada `app.py` atau file lainnya.
+
+2. Push Perubahan  
+   ```bash
+   git add .
+   git commit -m "Update fitur X"
+   git push
+   ```
+   - Aplikasi di Streamlit akan otomatis update dalam 1-2 menit.
+
+---
+
+### Langkah 6: Akses Aplikasi
+1. Buka dashboard Streamlit di [https://share.streamlit.io](https://share.streamlit.io)
+2. Pilih aplikasi Anda
+3. Share URL (contoh: `https://nama-app.streamlit.app`) ke pengguna lain.
+
+---
+
+### Tips Penting
+1. Pastikan:
+   - File utama bernama `app.py` atau sesuaikan di konfigurasi Streamlit
+   - Semua dependency tercantum di `requirements.txt`
+   - Tidak ada error saat run lokal (`streamlit run app.py`)
+
+2. Jika Error:
+   - Cek log deploy di dashboard Streamlit
+   - Verifikasi versi Python dan package
+
+3. Gunakan Virtual Environment (rekomendasi):
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # Linux/Mac
+   venv\Scripts\activate    # Windows
+   pip install -r requirements.txt
+   ```
+
